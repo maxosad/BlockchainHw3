@@ -17,12 +17,12 @@ async function main() {
 
     
 
-    const contractEthUsdAgregator = new ethers.Contract(ethUsdAddress, abiEhtUsd, provider)
-    const contractLinkEthAgregator = new ethers.Contract(linktEthAddress, abiLinkUsdtEth, provider)
-    const contractUsdtEthAgregator = new ethers.Contract(usdtEthAddress, abiUsdtEth, provider)
+    const contractEthUsd = new ethers.Contract(ethUsdAddress, abiEhtUsd, provider)
+    const contractLinkEth = new ethers.Contract(linktEthAddress, abiLinkUsdtEth, provider)
+    const contractUsdtEth = new ethers.Contract(usdtEthAddress, abiUsdtEth, provider)
     
     
-    contractEthUsdAgregator.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
+    contractEthUsd.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
         let info = {
             current: ethers.utils.formatUnits(current, 8),
             roundId: roundId.toString(),
@@ -33,7 +33,7 @@ async function main() {
         console.log(JSON.stringify(info, null, 4));
     });
     
-    contractLinkEthAgregator.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
+    contractLinkEth.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
         let info = {
             current: ethers.utils.formatUnits(current, 18),
             roundId: roundId.toString(),
@@ -44,7 +44,7 @@ async function main() {
         console.log(JSON.stringify(info, null, 4));
     });
 
-    contractUsdtEthAgregator.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
+    contractUsdtEth.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
         let info = {
             current: ethers.utils.formatUnits(current, 18),
             roundId: roundId.toString(),
