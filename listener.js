@@ -3,8 +3,8 @@ require("dotenv").config();
 
 
 const abiEhtUsd = require("./abi/37.json");
-const abiLinkUsdtEth = require("./abi/bb.json")
-const abiUsdtEth = require("./abi/7d.json")
+const abiLinkUsdtEth = require("./abi/bb.json");
+const abiUsdtEth = require("./abi/7d.json");
 
 async function main() {
     const ethUsdAddress = "0x37bC7498f4FF12C19678ee8fE19d713b87F6a9e6";
@@ -17,9 +17,9 @@ async function main() {
 
     
 
-    const contractEthUsd = new ethers.Contract(ethUsdAddress, abiEhtUsd, provider)
-    const contractLinkEth = new ethers.Contract(linktEthAddress, abiLinkUsdtEth, provider)
-    const contractUsdtEth = new ethers.Contract(usdtEthAddress, abiUsdtEth, provider)
+    const contractEthUsd = new ethers.Contract(ethUsdAddress, abiEhtUsd, provider);
+    const contractLinkEth = new ethers.Contract(linktEthAddress, abiLinkUsdtEth, provider);
+    const contractUsdtEth = new ethers.Contract(usdtEthAddress, abiUsdtEth, provider);
     
     
     contractEthUsd.on("AnswerUpdated", (current, roundId, updatedAt, event) => {
